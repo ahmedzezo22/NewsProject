@@ -1,0 +1,8 @@
+F:\News\News\obj\Debug\net461\NewsProject.exe.config
+F:\News\News\obj\Debug\net461\NewsProject.AssemblyInfoInputs.cache
+F:\News\News\obj\Debug\net461\NewsProject.AssemblyInfo.cs
+F:\News\News\obj\Debug\net461\NewsProject.csproj.CoreCompileInputs.cache
+F:\News\News\obj\Debug\net461\NewsProject.RazorAssemblyInfo.cache
+F:\News\News\obj\Debug\net461\NewsProject.RazorAssemblyInfo.cs
+F:\News\News\obj\Debug\net461\UserSecretsAssemblyInfo.cs
+F:\News\News\obj\Debug\net461\NewsProject.csprojAssemblyReference.cache

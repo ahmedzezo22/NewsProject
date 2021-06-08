@@ -1,0 +1,64 @@
+﻿@page
+
+@model IndexModel
+
+
+
+ @Html.Partial("_StatusMessage", Model.StatusMessage)
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.FirstName"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.LastName"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+
+                <div class="input-group">
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-ok text-success"></span></span>
+                </div>
+
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.PhoneNumber"></label>
+                <input asp-for="Input.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Profile"></label>
+                <input asp-for="Input.Profile" type="file" class="form-control" onchange="document.getElementById('Profile').src = window.URL.createObjectURL(this.files[0])" />
+                <span asp-validation-for="Input.Profile" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Save</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        @if (Model.Input.Profile != null)
+        {
+            <img alt="" style="width:300px;height:300px" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.Profile))" />
+
+        }
+        else
+        {
+            <img alt="" id="Profile" src="~/assets/img/avata.jpg" style="width:300px;height:300px" />
+
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

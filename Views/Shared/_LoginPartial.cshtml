@@ -1,0 +1,30 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUsers> SignInManager
+@inject UserManager<ApplicationUsers> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+   
+<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="d-flex">
+
+
+    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="margin-top: 10px; margin-left: 17px;"> @UserManager.GetUserAsync(User).Result.FirstName</a>
+
+    @if (UserManager.GetUserAsync(User).Result.Profile != null)
+    {
+        <img alt="" style="width:58px;height:44px;border-radius:50%;margin-left:6px" src="data:image/*;base64,@(Convert.ToBase64String(Model.Input.Profile))" />
+    }
+    <button type="submit" class="" style="border:none;outline:none;background:none">Logout</button>
+
+
+</form>
+
+}
+else
+{
+
+    <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+    <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+
+}

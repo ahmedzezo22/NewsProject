@@ -1,0 +1,39 @@
+﻿
+@model List<New>
+<section id="about" class="about">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>News @ViewBag.cat </h2>
+
+
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo</p>
+
+
+        </div>
+
+        <center>
+            @foreach (var item in Model)
+            {
+                @if (item.Image == null)
+                {
+                <img src="~/assets/img/about.jpg" style="width:200px;height:200px;border-radius:50%" alt="">
+                }
+                else
+                {
+        <img src="~/NewsImg/@item.Image" style="width:200px;height:200px;border-radius:50%" alt="">
+                }
+                <h3>@item.Title</h3>
+                <p class="font-italic">
+                    @item.Topic
+                </p>
+                <h4>@item.Date</h4>
+              <!--  <a href="/Home/Delete/" class="btn btn-danger">Delete</a> -->
+
+                <hr />
+            }
+
+        </center>
+
+    </div>
+</section>
